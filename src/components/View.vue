@@ -1,17 +1,18 @@
 <template>
   <div>
     View!
+    <router-link to="/add">Add</router-link>
     <table>
-      <tr v-for="user in users" v-bind:key="user">
+      <tr v-for="(user, index) in users" v-bind:key="index">
         <td>{{user.name}}</td>
         <td>{{user.surname}}</td>
         <td>{{user.phone}}</td>
         <td>{{user.email}}</td>
         <td>
-          <button v-on:click="remove">Delete</button>
+          <button v-on:click="remove(index)">Delete</button>
         </td>
         <td>
-          <button v-on:click="edit">Edit</button>
+          <button v-on:click="edit(index)">Edit</button>
         </td>
       </tr>
     </table>
@@ -30,14 +31,14 @@ export default {
     };
   },
   methods: {
-    remove: function() {
-      alert("Delete");
+    remove: function(index) {
+      this.users.splice(index, 1);
+      localStorage.setItem("users", JSON.stringify(this.users));
     },
-    edit: function() {
-      alert("Edit");
+    edit: function(index) {
+      this.$router.push({ name: "edit", params: { index: index } });
     }
   }
-
 };
 </script>
 
