@@ -1,11 +1,13 @@
 <template>
-  <div>
-    Add!
-    <input placeholder="Name" v-model="user.name" />
-    <input placeholder="Surname" v-model="user.surname" />
-    <input placeholder="Phone" v-model="user.phone" />
-    <input placeholder="email" v-model="user.email" />
-    <button v-on:click="save">Save!</button>
+  <div class="add">
+    Add new users:
+    <div class="form">
+      <input placeholder="Name" v-model="user.name" />
+      <input placeholder="Surname" v-model="user.surname" />
+      <input placeholder="Phone" v-model="user.phone" />
+      <input placeholder="email" v-model="user.email" />
+      <button v-on:click="save">Save!</button>
+    </div>
     <div>
       <label>
         Import
@@ -45,7 +47,7 @@ export default {
       this.file = this.$refs.file.files[0];
       const filerReader = new FileReader();
       const _this = this;
-      
+
       filerReader.onload = (function(reader) {
         return function() {
           const newusers = JSON.parse(reader.result);
@@ -66,4 +68,14 @@ export default {
 </script>
 
 <style>
+.add {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 20px;
+}
+.form {
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+}
 </style>

@@ -1,11 +1,13 @@
 <template>
-  <div>
-    Edit!
+  <div class = "edit">
+    Edit user:
+    <div class = "editform">
     <input placeholder="Name" v-model="user.name" />
     <input placeholder="Surname" v-model="user.surname" />
     <input placeholder="Phone" v-model="user.phone" />
     <input placeholder="email" v-model="user.email" />
     <button v-on:click="save">Save!</button>
+    </div>
   </div>
 </template>
 
@@ -39,4 +41,14 @@ export default {
 </script>
 
 <style>
+.edit {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 20px;
+}
+.editform {
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+}
 </style>

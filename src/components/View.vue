@@ -1,8 +1,8 @@
 <template>
-  <div>
-    View!
+  <div class="view">
+    Users:
     <router-link to="/add">Add</router-link>
-    <table>
+    <table class="list">
       <tr v-for="(user, index) in users" v-bind:key="index">
         <td>{{user.name}}</td>
         <td>{{user.surname}}</td>
@@ -43,4 +43,15 @@ export default {
 </script>
 
 <style>
+.view {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 20px;
+}
+.list {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  border: solid 3px;
+  padding: 5px;
+}
 </style>
